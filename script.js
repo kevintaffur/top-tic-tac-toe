@@ -147,6 +147,10 @@ const display = (() => {
         }
         const position = cell.id;
         const [row, column] = position.split("");
+        const boardValue = gameBoard.getValueAt(row, column);
+        if (boardValue === "X" || boardValue === "O") {
+          return;
+        }
         gameBoard.updateCoordinate(row, column, symbol);
         cell.textContent = gameBoard.getValueAt(row, column);
         
